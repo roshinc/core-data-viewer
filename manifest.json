@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Core Data Viewer",
+  "version": "1.0",
+  "description": "Toggle between rendered view and raw JSON data",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "icons": {
+    "128": "icons/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost/*"
+      ],
+      "run_at": "document_idle",
+      "css": [
+        "css/content.css",
+        "external/css/jsoneditor.min.css"
+      ],
+      "js": [
+        "js/content.js",
+        "external/js/jsoneditor.min.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "js/pageScript.js",
+        "external/js/jsoneditor.min.js",
+        "external/css/jsoneditor.min.css",
+        "img/jsoneditor-icons.svg"
+      ],
+      "matches": [
+        "http://localhost/*"
+      ]
+    }
+  ]
+}
